@@ -1,3 +1,4 @@
+// Lista de alunos em formato de tabela.
 const AlunoList = ({ alunos, onEdit, onDelete }) => {
     return (
         <div>

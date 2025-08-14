@@ -1,10 +1,14 @@
+// Importação de módulos
 const express = require('express');
 const cors = require('cors');
 const sqlite3 = require('sqlite3').verbose();
-const app = express();
-const PORT = 3000;
 
-// Middleware
+// Configurações iniciais
+const app = express();
+const PORT = 3000; // Configurações onde o servidor vai rodar
+
+// Middleware globais
+
 app.use(cors());
 app.use(express.json());
 
@@ -27,17 +31,7 @@ db.run(`
   )
 `);
 
-// Listar todos os alunos
-// app.get('/api/alunos', (req, res) => {
-//   const query = 'SELECT * FROM alunos';
-//   db.all(query, [], (err, rows) => {
-//     if (err) {
-//       return res.status(500).json({ error: err.message });
-//     }
-//     res.json(rows);
-//   });
-// });
-
+// GET /api/alunos
 app.get('/api/alunos', (req, res) => {
   const { curso } = req.query;
   let query = 'SELECT * FROM alunos';
@@ -56,7 +50,7 @@ app.get('/api/alunos', (req, res) => {
   });
 });
 
-// Criar novo aluno
+// POST /api/alunos Criação 
 app.post('/api/alunos', (req, res) => {
   const { nome, idade, curso } = req.body;
   const query = 'INSERT INTO alunos (nome, idade, curso) VALUES (?, ?, ?)';
@@ -69,7 +63,7 @@ app.post('/api/alunos', (req, res) => {
   });
 });
 
-// Editar aluno
+// // PUT /api/alunos/:id Editar aluno
 app.put('/api/alunos/:id', (req, res) => {
   const id = req.params.id;
   const { nome, idade, curso } = req.body;
@@ -85,7 +79,7 @@ app.put('/api/alunos/:id', (req, res) => {
   });
 });
 
-// Deletar aluno
+// DELETE /api/alunos/:id Deletar aluno
 app.delete('/api/alunos/:id', (req, res) => {
   const id = req.params.id;
   const query = 'DELETE FROM alunos WHERE id = ?';
@@ -100,7 +94,7 @@ app.delete('/api/alunos/:id', (req, res) => {
   });
 });
 
-// Start server
+// Inicialização do servidor
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });

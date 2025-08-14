@@ -4,10 +4,13 @@ import AlunosList from "./components/AlunosList";
 import api from './services/api';
 import './App.css';
 
+// Cria/atualiza/exclui alunos sem recarregar a página
 function App() {
+  // Lista de alunos renderizada na tabela
   const [alunos, setAlunos] = useState([]);
   const [alunoSelecionado, setAlunoSelecionado] = useState(null);
 
+  /** Carrega alunos do backend (GET /alunos) */
   const carregarAlunos = async () => {
     try {
       const res = await api.get('/alunos'); // endpoint correto
@@ -21,6 +24,7 @@ function App() {
     carregarAlunos();
   }, []);
 
+  //Salva aluno (cria ou atualiza)
   const salvarAlunos = async (aluno) => {
     try {
       if (aluno.id) {
@@ -34,6 +38,7 @@ function App() {
     }
   };
 
+  // Exclui aluno (DELETE /alunos/:id)
   const excluirAluno = async (id) => {
     if (window.confirm("Tem certeza que deseja excluir ?")) {
       try {
