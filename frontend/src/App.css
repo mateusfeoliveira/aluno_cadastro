@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   margin: 0;
   padding: 2rem;
+  color: #333;
 }
 
 .container {
@@ -11,29 +14,119 @@ body {
   background: white;
   padding: 2rem;
   border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.4s ease-out;
+}
+
+h1, h2 {
+  margin-bottom: 1rem;
+  color: #2c3e50;
 }
 
 form input {
   display: block;
   width: 100%;
-  margin: 0.5rem 0;
-  padding: 0.5rem;
+  margin: 0.5rem 0 1rem;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.2s;
+}
+
+form input:focus {
+  border-color: #068c46;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.25);
+  outline: none;
+  transform: scale(1.02);
 }
 
 button {
   margin-right: 0.5rem;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1.2rem;
   cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.25s, transform 0.15s ease;
+}
+
+button:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+button:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+button[type="submit"] {
+  background-color: #068c46;
+  color: white;
+}
+
+button[type="submit"]:hover {
+  background-color: #068c46;
+}
+
+button.edit {
+  background-color: #f39c12;
+  color: white;
+}
+
+button.edit:hover {
+  background-color: #d68910;
+}
+
+button.delete {
+  background-color: #e74c3c;
+  color: white;
+}
+
+button.delete:hover {
+  background-color: #c0392b;
 }
 
 table {
   width: 100%;
   margin-top: 2rem;
   border-collapse: collapse;
+  border-radius: 6px;
+  overflow: hidden;
+  animation: fadeIn 0.5s ease-out;
+}
+
+th {
+  background-color: #068c46;
+  color: white;
+  font-weight: bold;
 }
 
 th, td {
   padding: 0.75rem;
   border: 1px solid #ddd;
   text-align: left;
+}
+
+tr {
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f7fd;
+  transform: scale(1.01);
+}
+
+/* Animação de entrada suave */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
