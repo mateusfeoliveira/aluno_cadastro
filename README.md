@@ -55,16 +55,15 @@ Aplicação **fullstack** simples para gerenciar alunos (CRUD), com backend em *
 - Node.js LTS (versão 20 recomendada)
 - npm
 
-### 1️⃣ Backend
-```bash
+### Instalação do pacote
+<!-- 1️⃣ Backend -->
 cd backend
 npm install
 node server.js
-# Servidor rodando na porta 3000
+<!-- # Servidor rodando na porta 3000 -->
 
-### 2️⃣ FrontEnd
-```bash
+<!-- 2️⃣ FrontEnd -->
 cd frontend
 npm install
 npm run dev 
-# Servirá em http://localhost:3000
+<!-- Servirá em http://localhost:3000 -->
