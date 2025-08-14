@@ -59,5 +59,12 @@ Aplicação **fullstack** simples para gerenciar alunos (CRUD), com backend em *
 ```bash
 cd backend
 npm install
-npm run dev    # ou node server.js
+node server.js
+# Servidor rodando na porta 3000
+
+### 2️⃣ FrontEnd
+```bash
+cd frontend
+npm install
+npm run dev 
 # Servirá em http://localhost:3000
